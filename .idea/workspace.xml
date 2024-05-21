@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e95c56e-a137-4ab6-9f3a-1cad10bc5626" name="Changes" comment="qualche modifica. Il design fa ancora un po' schifo. bisogna modificare il design dei popup body, e il contenuto (vedere cosa si può aggiungere)">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bootcamp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webcomp-webcams-main/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/webcomp-webcams-main/src/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="5e95c56e-a137-4ab6-9f3a-1cad10bc5626" name="Changes" comment="ho aggiornato il design dei bottoni mettendo qualche emoji. ora sembra anni 80, hahaha" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,6 +58,14 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\.EMANUELE\.UniBz\Bootcamp\bootcamp\webcomp-webcams-main\public" />
+      <recent name="D:\.EMANUELE\.UniBz\Bootcamp\bootcamp\webcomp-webcams-main\src" />
+      <recent name="D:\.EMANUELE\.UniBz\Bootcamp\bootcamp\webcomp-webcams-main\src\scss" />
+      <recent name="D:\.EMANUELE\.UniBz\Bootcamp\bootcamp" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -93,7 +94,7 @@
       <workItem from="1716230364248" duration="7330000" />
       <workItem from="1716239515609" duration="456000" />
       <workItem from="1716240214632" duration="923000" />
-      <workItem from="1716290314469" duration="5911000" />
+      <workItem from="1716290314469" duration="16284000" />
     </task>
     <task id="LOCAL-00001" summary="added the API for creative Industries. i'm trying to set that when a button is pressed, the pointers of forecast disappear while appear those for industries. I'm a bit stuck with the buttons and the css js. it should work, but i did not tested if pressing the buttons i can effectively switch between forecast and industry. To run the localhost, do: npm run start">
       <option name="closed" value="true" />
@@ -183,7 +184,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716239938910</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="qualche modifica. ho aggiunto un file di nome Component_Description.md contenente la descrizione del progetto">
+      <option name="closed" value="true" />
+      <created>1716315155402</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716315155402</updated>
+    </task>
+    <task id="LOCAL-00013" summary="ho aggiornato il design dei bottoni mettendo qualche emoji. ora sembra anni 80, hahaha">
+      <option name="closed" value="true" />
+      <created>1716322894228</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716322894228</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +221,8 @@
     <MESSAGE value="sto sistemando la formattazione del testo" />
     <MESSAGE value="cleaning up of the code" />
     <MESSAGE value="qualche modifica. Il design fa ancora un po' schifo. bisogna modificare il design dei popup body, e il contenuto (vedere cosa si può aggiungere)" />
-    <option name="LAST_COMMIT_MESSAGE" value="qualche modifica. Il design fa ancora un po' schifo. bisogna modificare il design dei popup body, e il contenuto (vedere cosa si può aggiungere)" />
+    <MESSAGE value="qualche modifica. ho aggiunto un file di nome Component_Description.md contenente la descrizione del progetto" />
+    <MESSAGE value="ho aggiornato il design dei bottoni mettendo qualche emoji. ora sembra anni 80, hahaha" />
+    <option name="LAST_COMMIT_MESSAGE" value="ho aggiornato il design dei bottoni mettendo qualche emoji. ora sembra anni 80, hahaha" />
   </component>
 </project>
