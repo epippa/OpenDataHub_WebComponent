@@ -1,0 +1,71 @@
+<!-- SPDX-FileCopyrightText: NOI Techpark <digital@noi.bz.it>
+
+ SPDX-License-Identifier: AGPL-3.0-or-later -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Opendatahub Webcams</title>
+
+  <style>
+    #firstButton, #secondButton, #thirdButton, #fourthButton, #fifthButton {
+      display: none;
+      position: fixed;
+      right: 20px;
+      z-index: 1001; /* Più alto del pulsante del menu */
+      font-size: 24px;
+      width: 215px;
+    }
+    /* Posizione di ciascun pulsante */
+    #firstButton { top: 60px; }
+    #secondButton { top: 100px; }
+    #thirdButton { top: 140px; }
+    #fourthButton { top: 180px; }
+    #fifthButton { top: 220px; }
+  </style>
+</head>
+
+<body>
+<div id="sidebar" class="sidebar">
+  <button id="firstButton">Weather Forecast</button>
+  <button id="secondButton">Creative Industries</button>
+  <button id="thirdButton">Interesting Points</button>
+  <button id="fourthButton">Gastronomy</button>
+  <button id="fifthButton">Parking Spots</button>
+</div>
+
+<webcomp-weatherforecast id="weather-forecast" centermap="46.641532,11.355583" zoommap="10"></webcomp-weatherforecast>
+<script src="webcomp-weatherforecast.js"></script>
+
+<script>
+  function toggleSidebar() {
+    const button1 = document.getElementById("firstButton");
+    const button2 = document.getElementById("secondButton");
+    const button3 = document.getElementById("thirdButton");
+    const button4 = document.getElementById("fourthButton");
+    const button5 = document.getElementById("fifthButton");
+
+    if (button1.style.display === "none") {
+      button1.style.display = "block";
+      button2.style.display = "block";
+      button3.style.display = "block";
+      button4.style.display = "block";
+      button5.style.display = "block";
+    } else {
+      button1.style.display = "none";
+      button2.style.display = "none";
+      button3.style.display = "none";
+      button4.style.display = "none";
+      button5.style.display = "none";
+    }
+  }
+</script>
+<!-- Bottone per mostrare/nascondere la barra laterale -->
+<button onclick="toggleSidebar()" id="sidebar-toggle" class="sidebar-toggle"
+        style="position: fixed; top: 20px; right: 20px; font-size: 24px; z-index: 1000">&#9776;</button>
+</body>
+</html>
