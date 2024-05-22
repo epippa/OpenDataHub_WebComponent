@@ -45,7 +45,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/.EMANUELE/.UniBz/Bootcamp",
+    "last_opened_file_path": "D:/.EMANUELE/.UniBz/M1_Software_System_Architecture/Lab/Open_Data_Hub_Bootcamp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -197,6 +197,7 @@
       <workItem from="1716240214632" duration="923000" />
       <workItem from="1716290314469" duration="16284000" />
       <workItem from="1716360552084" duration="202000" />
+      <workItem from="1716396681404" duration="387000" />
     </task>
     <task id="LOCAL-00001" summary="added the API for creative Industries. i'm trying to set that when a button is pressed, the pointers of forecast disappear while appear those for industries. I'm a bit stuck with the buttons and the css js. it should work, but i did not tested if pressing the buttons i can effectively switch between forecast and industry. To run the localhost, do: npm run start">
       <option name="closed" value="true" />

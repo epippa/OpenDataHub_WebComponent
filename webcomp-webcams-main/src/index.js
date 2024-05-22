@@ -283,9 +283,11 @@ class OpendatahubWeatherForecast extends HTMLElement {
         });
 
         let imageUrl = '';
+        /*
         if (point["Detail.it"].ImageGallery && point["Detail.it"].ImageGallery.length > 0) {
           imageUrl = point["Detail.it"].ImageGallery[0].Url;
         }
+        */
 
         const popupbody = `<div class="webcampopuptext">
                           <b>${point["Detail.it"].Title}</b><br>
