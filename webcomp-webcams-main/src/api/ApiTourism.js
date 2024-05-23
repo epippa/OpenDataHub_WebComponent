@@ -53,21 +53,6 @@ export async function fetchWeatherForecast(source) {
 		});
 }
 
-export async function fetchDistricts(fields) {
-    return callGet("/District", {
-        origin: config.ORIGIN,
-        fields: fields
-    })
-    .then(response => {
-        this.districts = response;
-      console.log('district = response');
-    })
-    .catch(e => {
-        console.log(e)
-        throw e;
-    });
-}
-
 export async function fetchMunicipality(fields) {
   return callGet("/Municipality", {
     origin: config.tourismAPI.ORIGIN,
@@ -82,7 +67,6 @@ export async function fetchMunicipality(fields) {
       throw e;
     });
 }
-
 
 export async function fetchInterestingPoints(fields) {
   try {
