@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e95c56e-a137-4ab6-9f3a-1cad10bc5626" name="Changes" comment="ho aggiornato il design dei bottoni mettendo qualche emoji. ora sembra anni 80, hahaha">
+    <list default="true" id="5e95c56e-a137-4ab6-9f3a-1cad10bc5626" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Component_Description.md" beforeDir="false" afterPath="$PROJECT_DIR$/Classes_Description.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +198,9 @@
       <workItem from="1716240214632" duration="923000" />
       <workItem from="1716290314469" duration="16284000" />
       <workItem from="1716360552084" duration="202000" />
-      <workItem from="1716396681404" duration="387000" />
+      <workItem from="1716396681404" duration="1228000" />
+      <workItem from="1716398447067" duration="157000" />
+      <workItem from="1716452640844" duration="613000" />
     </task>
     <task id="LOCAL-00001" summary="added the API for creative Industries. i'm trying to set that when a button is pressed, the pointers of forecast disappear while appear those for industries. I'm a bit stuck with the buttons and the css js. it should work, but i did not tested if pressing the buttons i can effectively switch between forecast and industry. To run the localhost, do: npm run start">
       <option name="closed" value="true" />
@@ -303,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716322894228</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary=".">
+      <option name="closed" value="true" />
+      <created>1716397234359</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716397234359</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +337,7 @@
     <MESSAGE value="qualche modifica. Il design fa ancora un po' schifo. bisogna modificare il design dei popup body, e il contenuto (vedere cosa si può aggiungere)" />
     <MESSAGE value="qualche modifica. ho aggiunto un file di nome Component_Description.md contenente la descrizione del progetto" />
     <MESSAGE value="ho aggiornato il design dei bottoni mettendo qualche emoji. ora sembra anni 80, hahaha" />
-    <option name="LAST_COMMIT_MESSAGE" value="ho aggiornato il design dei bottoni mettendo qualche emoji. ora sembra anni 80, hahaha" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>
