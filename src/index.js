@@ -13,7 +13,15 @@ import { fetchCreative, fetchParking } from './api/ApiMobility';
 import { autocomplete } from './custom/autocomplete.js';
 import config from "./api/config";
 
+/*
+* This OpendatahubWeatherForecast() class handles the recover and the visualization of the weather forecast, creative industries,
+* points of interest, gastronomy, and parking.
+* This class contains methods to call the APIs (Mobility & Tourism), elaborate the recived data, and update the map
+* with the pertinent information.
+*/
 class OpendatahubWeatherForecast extends HTMLElement {
+
+  //Contructor -> inizialises the map setting, and sets up tha shadow DOM
   constructor() {
     super();
 
@@ -42,7 +50,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
 
     this.shadow = this.attachShadow({ mode: "open" });
 
-    // the Bind function avoid the possible lost of data
+    // the Bind function avoid the possible loss of context
     this.callForecastApiDrawMap = this.callForecastApiDrawMap.bind(this);
     this.callIndustriesApiDrawMap = this.callIndustriesApiDrawMap.bind(this);
     this.callInterestingPointsApiDrawMap = this.callInterestingPointsApiDrawMap.bind(this);
@@ -55,6 +63,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
   }
 
   attributeChangedCallback(propName, oldValue, newValue) {
+    //propName is the name of the changed attribute
     if (propName === "centermap" || propName === "zoommap" || propName === "source") {
       this.render();
     }
@@ -84,13 +93,18 @@ class OpendatahubWeatherForecast extends HTMLElement {
     this.setAttribute("source", newSource);
   }
 
+  /*
+  * When the element is connected to the DOM, the Callback
+  * initializes the map and sets up the button handlers
+  */
   connectedCallback() {
     this.render();
     this.initializeMap();
     this.setupButtonHandlers();
   }
 
-  setupButtonHandlers() {
+  //setupButtonHandlers sets up the event handlers for buttons
+  setupButtonHandlers() {   //BUTTON HANDLER
     const firstButton = document.getElementById("firstButton");
     const secondButton = document.getElementById("secondButton");
     const thirdButton = document.getElementById("thirdButton");
@@ -130,6 +144,10 @@ class OpendatahubWeatherForecast extends HTMLElement {
     }
   }
 
+  /*
+  * Leaflet.js initialises the map, setting the map view
+  * in a center and zoom level
+  */
   async initializeMap() {
     let root = this.shadowRoot;
     let mapref = root.getElementById('map');
@@ -143,7 +161,12 @@ class OpendatahubWeatherForecast extends HTMLElement {
     }).addTo(this.map);
   }
 
-  async callForecastApiDrawMap() {
+  /*
+  * callForecastApiDrawMap recover the weather forecast's data from the API using the fetch function,
+  * and updates the map showing markers with popups, containing the
+  * weather info: picture, day and forecast.
+  */
+  async callForecastApiDrawMap() {    //WEATHER FORECAST
     console.log('Forecast method has been called');
 
     await this.fetchWeatherForecast();
@@ -190,7 +213,10 @@ class OpendatahubWeatherForecast extends HTMLElement {
     this.generateALayerForTheMarkers(columns_layer_array);
   }
 
-
+ /*
+  * callIndustriesApiDrawMap recover the creative industries' data from the API using the fetchCreative function,
+  * and shows markers on the map, with popups containing the industries info: name, address, website, contact.
+  */
   async callIndustriesApiDrawMap() {    //CREATIVE INDUSTRY
     console.log('Industries method has been called');
 
@@ -204,6 +230,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
 
       let arrayMarker = [];
 
+      //Iterates the industries data to create the markers
       industriesData.data.forEach(creative => {
 
         if (creative["scoordinate"] && !isNaN(creative["scoordinate"].x) && !isNaN(creative["scoordinate"].y)) {
@@ -217,6 +244,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
             iconSize: L.point(100, 100)
           });
 
+          //sets content of the popup
           const popupbody = `<div class="webcampopuptext"><b>${creative["sname"]}</b><br><br>
                                     ${creative["smetadata"].address}<br><br>Website: <a href="${creative["smetadata"].website}" target="_blank">${creative["smetadata"].website}</a><br>
                                     Contact: ${creative["smetadata"].contacts}</div>`;
@@ -235,6 +263,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
       console.log('Num of created markers: ', arrayMarker.length);
 
       if (arrayMarker.length > 0) {
+        //calls the markers generator
         this.generateALayerForTheMarkers(arrayMarker);
       } else {
         console.error('No valid markers to add to the map');
@@ -244,7 +273,12 @@ class OpendatahubWeatherForecast extends HTMLElement {
     }
   }
 
-  async callInterestingPointsApiDrawMap() {
+  /*
+  * callInterestingPointsApiDrawMap recovers the points of interest's data, and activities' data, from the API by combining
+  * the fetchInterestingPoints and fetchActivities functions.
+  * Then it displays markers on the map, with popups containing the combined info: name, altitude, and a description.
+  */
+  async callInterestingPointsApiDrawMap() {   //POINTS OF INTEREST & ACTIVITY
     console.log('InterestPoints&Activity method has been called');
 
     try {
@@ -271,6 +305,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
       let arrayPoints = [];
       const interestingPointsAndActivityData = [...interestingPointsData.Items, ...activityData.Items];
 
+      //Iterates the points of interests and activities data to create the markers
       interestingPointsAndActivityData.forEach(point => {
         const pos = [
           point.GpsInfo[0].Latitude,
@@ -284,6 +319,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
 
         let imageUrl = '';
 
+        //Content of the popup
         const popupbody = `<div class="webcampopuptext">
                           <b>${point["Detail.it"].Title}</b><br>
                           <img class="interest-point-image" src="${imageUrl}" alt="${point["Detail.it"].Title}">
@@ -306,7 +342,10 @@ class OpendatahubWeatherForecast extends HTMLElement {
     }
   }
 
-
+ /*
+  * callGastronomiesApiDrawMap recovers the gastronomies' data from the API with the fetchGastronomy functions.
+  * Then it points the markers on the map, with popups containing the gastronomy info: name, address, altitude, website.
+  */
   async callGastronomiesApiDrawMap(){   // GASTRONOMY
     console.log('Gastronomy method has been called');
 
@@ -320,6 +359,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
 
       let gastronomyArray = [];
 
+      //Iterates the gastronomy data to generate the markers
       gastronomyData.Items.forEach(refreshmentPoint => {
         if (refreshmentPoint.GpsInfo && refreshmentPoint.GpsInfo.length > 0) {
           const pos = [
@@ -331,6 +371,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
             html: '<div class="iconMarkerWebcam"></div>',
             iconSize: L.point(100, 100)
           });
+
           let popupbody = `<div class="webcampopuptext"><b>${refreshmentPoint["Detail.it"].Title}</b><br>`;
 
           if (refreshmentPoint.GpsInfo[0].Altitude){
@@ -342,7 +383,6 @@ class OpendatahubWeatherForecast extends HTMLElement {
           if (refreshmentPoint["ContactInfos.it"].Url !== null) { // Verifica se l'URL non è null o undefined
             popupbody += `<br>Website: <a href="${refreshmentPoint["ContactInfos.it"].Url}" target="_blank">${refreshmentPoint["ContactInfos.it"].Url}</a>`;
           }
-
           popupbody += `</div>`;
 
           let popup = L.popup().setContent(popupbody);
@@ -357,7 +397,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
         }
       });
       console.log('Num of created markers: ', gastronomyArray.length);
-
+      //call markers generator
       this.generateALayerForTheMarkers(gastronomyArray);
     } catch (e) {
       console.error('Error in porcessing gastronomy data:', e);
@@ -366,10 +406,8 @@ class OpendatahubWeatherForecast extends HTMLElement {
 
   /*
   callParkingDrawMap() recovers the parking's data using the fetchParking function,
-  computes the occupation's percentage, and displays the markers on the map, with a popup containing the
-  parking info.
+  displays the markers on the map, with a popup containing the parking info: address and capacity's data.
   */
-
   async callParkingApiDrawMap() {   // PARKING SPACES
     console.log('Parking method has been called');
 
@@ -415,8 +453,8 @@ class OpendatahubWeatherForecast extends HTMLElement {
       });
       console.log('Num of created markers: ', parkingArray.length);
 
-      //Generates a layer on the map for the markers
       if (parkingArray.length > 0) {
+        //calls the markers creator
         this.generateALayerForTheMarkers(parkingArray);
       } else {
         console.error('No valid markers to add to the map');
@@ -426,6 +464,11 @@ class OpendatahubWeatherForecast extends HTMLElement {
     }
   }
 
+ /*
+  * Renders method updates the shadow DOM of the web component with the HTML and CSS.
+  * It sets the inner HTML to include elements and styles required for the functionality of the components.
+  * It includes the CSS for styling the map (and autocomplete input), and defines the structure of the HTML components.
+  */
   render() {
     this.shadow.innerHTML = `
       <style>
@@ -442,7 +485,8 @@ class OpendatahubWeatherForecast extends HTMLElement {
     `;
   }
 
-  removeMarkerFromMap() {   //remove existing markers
+  //remove existing markers
+  removeMarkerFromMap() {
     if (this.lcolumns) {
       this.map.removeLayer(this.lcolumns);
       this.lcolumns.clearLayers();
@@ -454,6 +498,7 @@ class OpendatahubWeatherForecast extends HTMLElement {
     console.log('existing markers has been removed');
   }
 
+  //Generates a layer on the map for the markers
   generateALayerForTheMarkers(arrayPoints) {
     this.lcolumns = new L.MarkerClusterGroup({
       showCoverageOnHover: false,

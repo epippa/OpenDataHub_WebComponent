@@ -1,8 +1,8 @@
 {
-  "title": "Webcams Visualization",
-  "shortName": "Webcams",
-  "description": "A simple map that shows webcams available from Open Data Hub",
-  "descriptionAbstract": "A simple map that shows webcams available from Open Data Hub",
+  "title": "Weather, Gastronomy, Activity, Parking, Industry",
+  "shortName": "Weather, Gastronomy, Activity, Parking, Industry",
+  "description": "Interactive map that shows Weather Forecast, Creative Industries, Points of Interest, Gastronomy, and Parking Spots from Open Data Hub",
+  "descriptionAbstract": "Map to show Weather, Industries, Points of Interest, Gastronomy, and Parking",
   "license": "AGPL-3.0-or-later",
   "repositoryUrl": "https://github.com/noi-techpark/webcomp-webcams.git",
   "copyrightHolders": [
@@ -15,7 +15,8 @@
   ],
   "authors": [
     {
-      "name": "Rudi Thoeni",
+      "name": "Emanuele Pippa, Anastasiia Guliaeva",
+      //Rudi Thoeni",
       "email": "r.thoeni@noi.bz.it",
       "organization": "NOI S.p.A",
       "organizationUrl": "https://noi.bz.it"

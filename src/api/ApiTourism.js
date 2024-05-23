@@ -5,6 +5,11 @@
 import axios from "axios";
 import config from "./config";
 
+/*
+ *  callGet performs a GET request to the path with the given parameters.
+ *  path => path of the API endpoint
+ *  params => API request needs the parameters
+ */
 export function callGet(path, params) {
   console.log("Turism path = " + config.tourismAPI.API_BASE_URL + path);
 
@@ -22,6 +27,7 @@ export function callGet(path, params) {
     });
 }
 
+//fetchWebcams function fetches webcam information from the API
 export async function fetchWebcams(source) {
 	return callGet("/WebcamInfo", {
             pagesize: 0,
@@ -38,6 +44,7 @@ export async function fetchWebcams(source) {
 		});
 }
 
+//fetchWeathrtForecast function fetches Weather information from the API
 export async function fetchWeatherForecast(source) {
 	return callGet("/Weather/Forecast", {
             pagesize: 0,
@@ -53,6 +60,22 @@ export async function fetchWeatherForecast(source) {
 		});
 }
 
+export async function fetchDistricts(fields) {
+    return callGet("/District", {
+        origin: config.ORIGIN,
+        fields: fields
+    })
+    .then(response => {
+        this.districts = response;
+      console.log('district = response');
+    })
+    .catch(e => {
+        console.log(e)
+        throw e;
+    });
+}
+
+//fetchMunicipality function fetches municipality information from the API
 export async function fetchMunicipality(fields) {
   return callGet("/Municipality", {
     origin: config.tourismAPI.ORIGIN,
@@ -68,6 +91,7 @@ export async function fetchMunicipality(fields) {
     });
 }
 
+//fetchInterestingPoints function fetches points of interest information from the API
 export async function fetchInterestingPoints(fields) {
   try {
     const response = await callGet("/ODHActivityPoi?tagfilter=poi&active=true", {
@@ -82,6 +106,7 @@ export async function fetchInterestingPoints(fields) {
   }
 }
 
+//fetchActivity function fetches activity information from the API
 export async function fetchActivities(fields) {
   try {
     const response = await callGet("/ODHActivityPoi?tagfilter=activity&active=true", {
@@ -96,6 +121,7 @@ export async function fetchActivities(fields) {
   }
 }
 
+//fetchGastronomy function fetches gastronomy information from the API
 export async function fetchGastronomy(fields) {
   try {
     const response = await callGet("/ODHActivityPoi?tagfilter=gastronomy&active=true", {
